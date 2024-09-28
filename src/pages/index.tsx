@@ -86,7 +86,7 @@ export default function Home() {
 						</div>
 					</div>
 				</header>
-				<section id="key-features" className="px-[3%] pt-[56px] lg:px-[100px] relative">
+				<section id="key-features" className="px-[3%] pt-[56px] lg:px-[100px] relative overflow-hidden">
 					<div className="absolute h-28 left-0 feature-gradient-top top-0 w-[100%]"></div>
 					<img
 						role="presentation"
@@ -150,7 +150,7 @@ export default function Home() {
 					<img
 						src="/svgs/dashboard-circle.svg"
 						alt="dashboard circle"
-						className="absolute top-[100px] -right-[350px] w-full h-full"
+						className="absolute top-[100px] -right-[350px] w-full h-full hidden lg:block"
 					/>
 				</section>
 				<section className="relative py-[114px] how-it-works-container" id="how-it-works">
@@ -169,7 +169,6 @@ export default function Home() {
 						</div>
 						<div>
 							<HowItWorks />
-							{/* <HowItWorksSlider /> */}
 						</div>
 					</div>
 					<div className="absolute bottom-0 left-0 right-0 w-full">
@@ -284,14 +283,14 @@ export default function Home() {
 						<h5 className="text-base text-white mb-2">IMPERIUS</h5>
 						<h1 className="text-[32px] leading-[48px] text-[#04B6B6] font-bold">Roadmap</h1>
 					</div>
-					<div className="mb-[121px]">
+					<div data-aos="fade-up" className="mb-[121px]">
 						<Roadmap />
 					</div>
 					<div className="mx-auto w-full">
 						<img src="/svgs/globe.svg" alt="Globe" className="animate-pulse w-full" />
 					</div>
 				</section>
-				<section id="faq" className="flex flex-col justify-between px-[3%] lg:px-[100px] lg:flex-row">
+				<section id="faq" className="flex flex-col justify-between px-[3%] overflow-x-hidden lg:px-[100px] lg:flex-row lg:overflow-auto">
 					<div data-aos="fade-right" className="max-w-full lg:max-w-[427px]">
 						<div className="mb-12">
 							<h2 className="text-[32px] leading-[48px] text-[#04B6B6] mb-4 font-medium">
@@ -313,8 +312,8 @@ export default function Home() {
 									xmlns="http://www.w3.org/2000/svg"
 								>
 									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
+										fillRule="evenodd"
+										clipRule="evenodd"
 										d="M5.21967 14.8926C5.51256 15.1855 5.98744 15.1855 6.28033 14.8926L13.5 7.67296V13.3623C13.5 13.7765 13.8358 14.1123 14.25 14.1123C14.6642 14.1123 15 13.7765 15 13.3623V5.8623C15 5.44809 14.6642 5.1123 14.25 5.1123H6.75C6.33579 5.1123 6 5.44809 6 5.8623C6 6.27652 6.33579 6.6123 6.75 6.6123H12.4393L5.21967 13.832C4.92678 14.1249 4.92678 14.5997 5.21967 14.8926Z"
 										fill="white"
 									/>

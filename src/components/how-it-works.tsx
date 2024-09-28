@@ -51,8 +51,8 @@ const HowItWorks = () => {
 
 	return (
 		<AnimatePresence>
-			<div className=" flex flex-col">
-				<div className="relative mb-10 w-full bg-[#555555] h-2 rounded-[32px] self-center">
+			<div className="flex flex-row relative lg:flex-col">
+				<div className="absolute left-[-250px] mb-10 bg-[#555555] h-2 rounded-[32px] w-full self-center rotate-90 lg:rotate-0 lg:relative lg:left-0">
 					<motion.div
 						className="absolute top-0 flex justify-items-end left-0 h-2 bg-[#04B6B6] roadmap-drop-shadow rounded-[32px] "
 						initial={{ width: 0 }}
@@ -60,7 +60,7 @@ const HowItWorks = () => {
 						transition={{ duration: 1, ease: "linear" }}
 					/>
 				</div>
-				<div className="flex justify-between gap-5 items-start">
+				<div className="flex justify-between gap-5 items-start flex-col ml-14 w-full lg:ml-o lg:flex-row">
 					{sliderData.map((slide, index) => (
 						<div
 							key={index}

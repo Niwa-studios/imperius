@@ -50,8 +50,8 @@ const Roadmap = () => {
 
 	return (
 		<AnimatePresence>
-			<div className=" flex flex-col">
-				<div className="relative -mb-[65px] w-full bg-[#555555] h-2 rounded-[32px] max-w-[1240px] self-center">
+			<div className="flex flex-col">
+				<div className="absolute hidden -mb-[65px] w-full bg-[#555555] h-2 rounded-[32px] max-w-[1240px] self-center lg:block lg:relative">
 					<motion.div
 						className="absolute top-0 flex justify-items-end left-0 h-2 bg-[#04B6B6] roadmap-drop-shadow rounded-[32px] "
 						initial={{ width: 0 }}
@@ -59,11 +59,11 @@ const Roadmap = () => {
 						transition={{ duration: 1, ease: "linear" }}
 					/>
 				</div>
-				<div className="flex justify-between items-start">
+				<div className="flex justify-between items-center flex-col lg:flex-row lg:items-start">
 					{phases.map((phase, index) => (
 						<div
 							key={index}
-							className="flex flex-col items-center max-w-[392px] first:items-start last:items-end"
+							className="flex flex-col items-center max-w-[392px] lg:first:items-start lg:last:items-end"
 						>
 							<motion.div
 								initial={{ scale: 0 }}
@@ -71,7 +71,7 @@ const Roadmap = () => {
 								transition={{ duration: 0.5 }}
 							>
 								<h2
-									className={`mb-3 ${index === 0 ? "text-right" : "text-left"} ${
+									className={`mb-3 ${index === 0 ? "text-center lg:text-right" : "text-center lg:text-left"} ${
 										currentPhase >= index ? "text-[#04B6B6]" : "text-[#888888]"
 									}`}
 								>

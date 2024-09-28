@@ -175,3 +175,18 @@ progress[value]::-moz-progress-bar {
     opacity: 0.4;
   }
 }
+
+
+/* Responsiveness */
+
+@media only screen and (max-width: 1024px) {
+  .usecase-one-container,
+  .usecase-two-container,
+  .usecase-three-container,
+  .usecase-four-container,
+  .usecase-five-container{
+    background-size: cover;
+  }
+
+}
+
