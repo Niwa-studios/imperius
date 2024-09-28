@@ -17,6 +17,9 @@ module.exports = {
       backgroundImage: {
         'footer-gradient': 'linear-gradient(180deg, rgba(0,250,255,1) 0%, rgba(0,150,153,1) 100%)'
       },
+      gridTemplateColumns: {
+        "features-grid": "repeat(auto-fit, minmax(250px, 1fr))",
+      }
     },
   },
   plugins: [],

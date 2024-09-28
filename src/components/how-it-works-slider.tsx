@@ -64,17 +64,27 @@ function HowItWorksSlider() {
 			<div className="flex flex-col gap-5 lg:flex-row">
 				{sliderData.map((slide, idx) => (
 					<div key={idx} className="flex flex-col">
-                        <div onClick={() => handleSlideChange(idx)}>
-                            <progress
-                                value={idx === currentIndex ? progress : 0}
-                                max={100} 
-                                className="rounded-[32px] mb-6 ease-in-out"
-                            />
-                            <h4 className={`text-base mt-6 ml-3 ${idx === currentIndex ? "text-[#04B6B6]" : "text-[rgba(255,255,255,0.7)]" }`}>{idx + 1}</h4>
-                            <h3 className={`text-xl ml-3 ${idx === currentIndex ? "text-[#04B6B6]" : "text-[rgba(255,255,255,0.7)]" }`}>
-                                {slide.title}
-                            </h3>
-                        </div>
+						<div onClick={() => handleSlideChange(idx)}>
+							<progress
+								value={idx === currentIndex ? progress : 0}
+								max={100}
+								className="rounded-[32px] mb-6 ease-in-out"
+							/>
+							<h4
+								className={`text-base mt-6 ml-3 ${
+									idx === currentIndex ? "text-[#04B6B6]" : "text-[rgba(255,255,255,0.7)]"
+								}`}
+							>
+								{idx + 1}
+							</h4>
+							<h3
+								className={`text-xl ml-3 ${
+									idx === currentIndex ? "text-[#04B6B6]" : "text-[rgba(255,255,255,0.7)]"
+								}`}
+							>
+								{slide.title}
+							</h3>
+						</div>
 					</div>
 				))}
 			</div>

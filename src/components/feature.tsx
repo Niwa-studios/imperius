@@ -1,4 +1,7 @@
-import React from "react";
+import { buttonBase } from "@/data";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface FeatureProps {
 	title: string;
@@ -10,18 +13,24 @@ interface FeatureProps {
 }
 
 function Feature({ title, subtitle, description, extLink, mediaLink, reverseOrder }: FeatureProps) {
+	
+	useEffect(() => {
+		AOS.init();
+	}, []);
+
+
 	return (
-		<div className={`flex justify-between items-center ${reverseOrder ? "flex-col-reverse lg:flex-row-reverse" : "flex-col-reverse lg:flex-row"}`}>
-			<div data-aos="fade-up" className="max-w-full mt-9 lg:mt-0 lg:max-w-[505px]">
+		<div
+			className={`flex justify-between items-center ${
+				reverseOrder ? "flex-col-reverse lg:flex-row-reverse" : "flex-col-reverse lg:flex-row"
+			}`}
+		>
+			<div data-aos="fade-left" className="max-w-full mt-9 lg:mt-0 lg:max-w-[505px]">
 				<h2 className="text-[24px] leading-[38px] text-[#04B6B6] mb-[48px] font-bold">{title}</h2>
 				<div>
 					<h5 className="mb-4 text-white">{subtitle}</h5>
 					<p className="text-[rgba(255,255,255,0.7)] text-base mb-8">{description}</p>
-					<a
-						href={extLink}
-						target="_blank"
-						className="bg-[#04B6B6] text-white text-base tracking-[-0.5px] font-bold py-3 px-6 rounded-[100px] w-fit flex items-center gap-[17px]"
-					>
+					<a href={extLink} target="_blank" className={`w-fit flex items-center gap-[17px] ${buttonBase}`}>
 						<span>Learn More</span>
 						<span>
 							<svg
@@ -43,25 +52,21 @@ function Feature({ title, subtitle, description, extLink, mediaLink, reverseOrde
 				</div>
 			</div>
 			<div
-				data-aos="fade-up"
+				data-aos="fade-right"
 				className={`relative max-w-[683px] py-[38px] ${reverseOrder ? "feature-bg-reverse" : "feature-bg"}`}
 			>
 				<div className={`w-[90%] relative z-[2] ${reverseOrder ? "ml-[28px]" : "mr-[28px]"}`}>
-					{mediaLink ? (
+					{/* {mediaLink ? (
 						<img src={mediaLink} alt={title} />
 					) : (
 						<video loop muted autoPlay playsInline width="100%" height="100%" controls={false}>
 							<source src={"/videos/feature.mp4"} type="video/mp4" />
 						</video>
-					)}
+					)} */}
+					<video loop muted autoPlay playsInline width="100%" height="100%" controls={false}>
+						<source src={mediaLink} type="video/mp4" />
+					</video>
 				</div>
-				{/* <div className="absolute top-0">
-					{reverseOrder ? (
-						<img src="/svgs/feature-border-reverse.svg" alt="Feature Border" />
-					) : (
-						<img src="/svgs/feature-border.svg" alt="Feature Border" />
-					)}
-				</div> */}
 			</div>
 		</div>
 	);

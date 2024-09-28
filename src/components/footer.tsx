@@ -29,7 +29,7 @@ function Footer() {
 			</div>
 			<div className="flex flex-col-reverse justify-between py-[56px] px-[3%] lg:flex-row lg:px-[100px]">
 				<div className="w-full lg:w-[55%]">
-					<div className="mb-14 lg:mb-[161px]">
+					<div className="mb-14 lg:mb-[250px]">
 						<div className="mb-8">
 							<img src="/logo.svg" alt="Imperius" />
 						</div>
@@ -47,27 +47,16 @@ function Footer() {
 						</div>
 					</div>
 					<div className="flex items-end justify-between">
-						<div className="flex gap-2 flex-col max-w-[90px]">
+						<div className="flex gap-2">
+							<a href="#" target="_blank">
+								<img src="/svgs/footer/telegram.svg" />
+							</a>
 							<a href="#" target="_blank">
 								<img src="/svgs/footer/ok.svg" />
 							</a>
-							<div className="flex gap-2">
-								<a href="#" target="_blank">
-									<img src="/svgs/footer/vk.svg" />
-								</a>
-								<a href="#" target="_blank">
-									<img src="/svgs/footer/facebook.svg" />
-								</a>
-							</div>
-							<div className="flex gap-2">
-								<a href="#" target="_blank">
-									<img src="/svgs/footer/telegram.svg" />
-								</a>
-
-								<a href="#" target="_blank">
-									<img src="/svgs/footer/instagram.svg" />
-								</a>
-							</div>
+							<a href="#" target="_blank">
+								<img src="/svgs/footer/vk.svg" />
+							</a>
 						</div>
 						<div className="text-[#8F9FA3] text-[14px] leading-[160%] text-right">
 							<h3>© 2024 — Copyright</h3>
@@ -94,43 +83,7 @@ function Footer() {
 						</li>
 					</ul>
 					<div>
-						<div className="mb-12">
-							<h3 className="text-white mb-4">Contact Us</h3>
-							<div className="text-[#8F9FA3] text-[14px] leading-[160%] flex flex-col">
-								<a href="#">+1 (999) 888-77-66</a>
-								<a href="#">hello@logoipsum.com</a>
-							</div>
-						</div>
-						<div className="flex justify-between items-end">
-							<div>
-								<h3 className="text-white mb-4">Location</h3>
-								<span className="text-[#8F9FA3] text-[14px] leading-[160%]">
-									483920, Moscow,
-									<br />
-									Myasnitskaya 22/2/5, Office 4
-								</span>
-							</div>
-							<div className="hidden flex-col items-end lg:flex">
-								<h3 className="text-[12px] leading-[140%] text-white">Languages</h3>
-								<div className="mt-[15px] flex gap-5">
-									<button className="text-[14px] leading-[140%] duration-100 text-[#8F9FA3] hover:text-white">
-										En
-									</button>
-									<button className="text-[14px] leading-[140%] duration-100 text-[#8F9FA3] hover:text-white">
-										Es
-									</button>
-									<button className="text-[14px] leading-[140%] duration-100 text-[#8F9FA3] hover:text-white">
-										Fr
-									</button>
-									<button className="text-[14px] leading-[140%] duration-100 text-[#8F9FA3] hover:text-white">
-										Fr
-									</button>
-									<button className="text-[14px] leading-[140%] duration-100 text-[#8F9FA3] hover:text-white">
-										Ru
-									</button>
-								</div>
-							</div>
-						</div>
+						<div className="h-[267px] w-full bg-[rgba(249,250,251,0.2)]"></div>
 					</div>
 				</div>
 			</div>

@@ -1,12 +1,21 @@
 import Feature from "@/components/feature";
-import HowItWorksSlider from "@/components/how-it-works-slider";
 import MainLayout from "@/components/layout/main-layout";
-import LogoSlider from "@/components/logo-slider";
 import Navbar from "@/components/navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { featureData, faqData, buttonBase, dashboardFeatures } from "@/data";
+import Roadmap from "@/components/roadmap";
+import HowItWorks from "@/components/how-it-works";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
 	const [selectedFaq, setSelectedFaq] = useState<number | null>(null);
+
+	useEffect(() => {
+		AOS.init();
+	}, []);
+
+
 
 	const handleToggleAccordion = (accordionId: number) => {
 		setSelectedFaq((prevOpen) => {
@@ -18,124 +27,80 @@ export default function Home() {
 		});
 	};
 
-	const featureData = [
-		{
-			title: "Decentralized Resilience",
-			subtitle: "Self-Healing Mesh Architecture",
-			description:
-				"Imperius utilizes a decentralized mesh network, ensuring continuous operation through intelligent self-healing capabilities. This architecture maintains optimal performance even in the event of node failures.",
-			mediaLink: "",
-			extLink: "https://app.imperiusai.io",
-			reverseOrder: false,
-		},
-		{
-			title: "Cryptographic Privacy",
-			subtitle: "Multi-Layered Encryption Protocol",
-			description:
-				"Our implementation of advanced onion routing technology encapsulates data in multiple encryption layers. This approach guarantees superior privacy and safeguards against sophisticated traffic analysis attempts.",
-			mediaLink: "",
-			extLink: "https://app.imperiusai.io",
-			reverseOrder: true,
-		},
-		{
-			title: "AI-Enhanced Scalability",
-			subtitle: "Predictive Performance Optimization",
-			description:
-				"Imperius integrates cutting-edge AI algorithms to anticipate network demands and optimize resource allocation in real-time. This proactive approach ensures seamless scalability as your computational requirements evolve.",
-			mediaLink: "",
-			extLink: "https://app.imperiusai.io",
-			reverseOrder: false,
-		},
-	];
-
-	const faqData = [
-		{
-			id: 1,
-			question: "What makes Imperius different from other blockchain platforms?",
-			answer: "Imperius stands out through its unique combination of AI-driven scalability and advanced security measures. Our self-healing mesh architecture and onion routing protocol provide unparalleled resilience and privacy, while our AI constantly optimizes performance, ensuring efficient scaling as your needs grow.",
-		},
-		{
-			id: 2,
-
-			question: "How does Imperius ensure the privacy and security of my data?",
-			answer: "Imperius employs a multi-layered approach to security. We use advanced onion routing technology, which encrypts data multiple times and sends it through various network nodes, making it extremely difficult to trace or intercept. Additionally, our decentralized architecture eliminates single points of failure, enhancing overall system security.",
-		},
-		{
-			id: 3,
-
-			question: "Can Imperius integrate with my existing blockchain projects?",
-			answer: "Imperius is designed for seamless integration. Our platform supports various blockchain protocols and provides a comprehensive SDK, allowing developers to easily connect existing projects or build new ones within our ecosystem. Our flexible framework adapts to your specific requirements.",
-		},
-		{
-			id: 4,
-
-			question: "What kind of performance improvements can I expect with Imperius?",
-			answer: "Performance improvements vary based on specific use cases, but our clients typically see significant enhancements in transaction speed, network resilience, and scalability. Our AI-driven optimization continuously fine-tunes the network, ensuring optimal performance even as demand fluctuates.",
-		},
-		{
-			id: 5,
-
-			question: "Is Imperius suitable for enterprise-level applications?",
-			answer: "Absolutely. Imperius is built with enterprise needs in mind. Our platform offers the scalability, security, and reliability required for large-scale operations. We provide dedicated support for enterprise clients, including customized solutions and integration assistance to meet specific business requirements.",
-		},
-		{
-			id: 6,
-
-			question: "How does Imperius support developers?",
-			answer: "We offer comprehensive support for developers, including detailed documentation, SDKs, and APIs. Our one-click deployment feature simplifies the process of setting up nodes and validators. Additionally, we provide a supportive community forum and direct technical assistance to help developers maximize the potential of our platform.",
-		},
-	];
-
 	return (
 		<MainLayout desc="Imperius delivers unparalleled decentralized computing solutions, prioritizing robust security and efficient scalability. Our platform empowers users to deploy sophisticated projects while maintaining complete control through advanced onion routing protocols.">
 			<main className="bg-[#020C0C] pb-[104px]">
-				<header className="hero-bg" id="home">
+				<header className="hero-bg relative overflow-hidden" id="home">
+					<img
+						role="presentation"
+						src="/imgs/light.png"
+						className="mix-blend-color-dodge absolute top-0 right-0 z-0"
+					/>
 					<Navbar />
-					<div className="relative">
-						<div className="hidden absolute top-0 left-[22px] right-0 w-[95%] lg:block">
-							<img src="/svgs/hero-hud-up.svg" />
-						</div>
-						<div className="flex flex-col-reverse px-[6%] py-14 justify-between items-center lg:flex-row">
-							<div className="flex flex-col gap-6 max-w-unset lg:max-w-[35%]">
-								<h1 className="text-[24px] leading-[36px] tracking-[-0.5px] text-white font-medium lg:text-[48px] lg:leading-[72px] ">
-									Imperius: Pioneering AI-Driven Blockchain Scalability
-								</h1>
-								<p className="text-base text-[rgba(255,255,255,0.8)] tracking-[-0.5px]">
-									Imperius delivers unparalleled decentralized computing solutions, prioritizing
-									robust security and efficient scalability. Our platform empowers users to deploy
-									sophisticated projects while maintaining complete control through advanced onion
-									routing protocols.
-								</p>
-								<a href="https://app.imperiusai.io" target="_blank" className="bg-[#04B6B6] text-white text-base tracking-[-0.5px] font-bold py-3 px-6 rounded-[100px] w-fit">
-									Explore Imperius
-								</a>
+					<div className="relative z-[1]">
+						<div className="relative pt-[211px]">
+							<div className="flex flex-col pt-14 justify-between items-center">
+								<div className="flex flex-col gap-6 px-[6%] max-w-unset text-center lg:max-w-[60%]">
+									<h1 className="text-[24px] leading-[36px] tracking-[-0.5px] text-white font-medium lg:text-[48px] lg:leading-[72px] ">
+										Imperius: Pioneering AI-Driven Blockchain Scalability
+									</h1>
+									<p className="text-base text-[rgba(255,255,255,0.8)] tracking-[-0.5px]">
+										Imperius delivers unparalleled decentralized computing solutions, prioritizing
+										robust security and efficient scalability. Our platform empowers users to deploy
+										sophisticated projects while maintaining complete control through advanced onion
+										routing protocols.
+									</p>
+									<a
+										href="https://app.imperiusai.io"
+										target="_blank"
+										className={`${buttonBase} w-fit self-center`}
+									>
+										Explore Imperius
+									</a>
+								</div>
+								<div className="relative max-w-[100%] mt-[128px]">
+									<div className="absolute top-0 left-0 right-0 z-[3] w-full">
+										<img src="/svgs/hero-hud-up.svg" />
+									</div>
+									<div className="relative">
+										<div className="hero-video-container-overlay absolute top-0 w-full h-full z-[1]"></div>
+
+										<video
+											loop
+											muted
+											autoPlay
+											playsInline
+											width="100%"
+											height="100%"
+											controls={false}
+										>
+											<source src={"/videos/demo.mp4"} type="video/mp4" />
+										</video>
+										<div className="hero-video-overlay absolute top-0 w-full h-full z-[0]"></div>
+									</div>
+									<div className="absolute bottom-0 left-0 right-0 w-full">
+										<img src="/svgs/hero-hud-down.svg" />
+									</div>
+								</div>
 							</div>
-							<div className="relative max-w-[684px] my-14">
-								<video loop muted autoPlay playsInline width="100%" height="100%" controls={false}>
-									<source src={"/videos/Rtxfinal_2.mp4"} type="video/mp4" />
-								</video>
-								{/* <img src="/imgs/imperius-filter.png" alt="Imperius" /> */}
-								<div className="bg-[#04B6B6] absolute top-0 left-0 right-0 z-[2]"></div>
-							</div>
-						</div>
-						<div className="hidden absolute bottom-[-26px] left-0 right-0 w-full lg:block">
-							<img src="/svgs/hero-hud-down.svg" />
-						</div>
-					</div>
-					<div className="logo-slider-overlay flex flex-col w-full">
-						<h3 className="text-base tracking-[-0.5px] text-white text-center w-fit self-center mr-20">
-							Projects Integrated into the Imperius Ecosystem
-						</h3>
-						<div>
-							<LogoSlider />
 						</div>
 					</div>
 				</header>
-				<section id="key-features" className="px-[3%] lg:px-[100px]">
-					<h1 className="text-[32px] leading-[48px] text-[#04B6B6] font-bold mt-[100px] mb-6">
-						Key Features
-					</h1>
-					<div className=" flex flex-col gap-[200px]">
+				<section id="key-features" className="px-[3%] pt-[56px] lg:px-[100px] relative">
+					<div className="absolute h-28 left-0 feature-gradient-top top-0 w-[100%]"></div>
+					<img
+						role="presentation"
+						src="/imgs/light.png"
+						className="mix-blend-color-dodge absolute top-0 left-[-80px] z-0 max-w-[1100px]"
+					/>
+					<div className="pt-[100px] mb-6 relative z-[1]">
+						<h5 className="text-base text-white mb-2">THE IMPERIUS ADVANTAGE</h5>
+						<h1 className="text-[32px] leading-[48px] text-[#04B6B6] font-bold">
+							Cutting-Edge Decentralized Architecture
+						</h1>
+					</div>
+
+					<div className=" flex flex-col gap-[200px] relative z-[1]">
 						{featureData.map((feature, idx) => (
 							<Feature
 								key={idx}
@@ -148,8 +113,47 @@ export default function Home() {
 							/>
 						))}
 					</div>
+					<img
+						role="presentation"
+						src="/imgs/light.png"
+						className="mix-blend-color-dodge absolute -bottom-56 left-0 z-0 max-w-[750px]"
+					/>
 				</section>
-				<section className="hero-bg relative py-[114px] mt-[250px]" id="how-it-works">
+				<section className="px-[3%] py-[140px] lg:px-[100px] relative overflow-hidden">
+					<div className="mb-12">
+						<h3 className="uppercase text-base tracking-[-0.5px] mb-2 text-white">features</h3>
+						<h1 className="capitalize text-[32px] leading-[48px] text-[#04B6B6] mb-6 font-bold">
+							Intuitive DApp Management Hub
+						</h1>
+					</div>
+					<div data-aos="fade-up">
+						<img src="/imgs/dashboard.png" alt="dashboard" />
+					</div>
+					<div className="flex flex-wrap w-full gap-6 mt-10 mx-[3%]">
+						{dashboardFeatures.map((feature, idx) => {
+							return (
+								<div
+									key={idx}
+									className="max-w-full px-6 py-4 border border-[rgba(255,255,255,0.23)] backdrop-blur-lg bg-[rgba(255,255,255,0.23)] w-full lg:max-w-[410px]"
+								>
+									<div className="mb-3">
+										<img src="/svgs/feature-stars.svg" alt="stars" />
+									</div>
+									<div>
+										<h4 className="text-base text-white mb-4">{feature.title}</h4>
+										<p className="text-sm text-[#ffffff99]">{feature.desc}</p>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+					<img
+						src="/svgs/dashboard-circle.svg"
+						alt="dashboard circle"
+						className="absolute top-[100px] -right-[350px] w-full h-full"
+					/>
+				</section>
+				<section className="relative py-[114px] how-it-works-container" id="how-it-works">
 					<div className="absolute top-0 left-0 right-0 w-full">
 						<img src="/svgs/hero-hud-up.svg" />
 					</div>
@@ -164,14 +168,15 @@ export default function Home() {
 							</p>
 						</div>
 						<div>
-							<HowItWorksSlider />
+							<HowItWorks />
+							{/* <HowItWorksSlider /> */}
 						</div>
 					</div>
 					<div className="absolute bottom-0 left-0 right-0 w-full">
 						<img src="/svgs/hero-hud-down.svg" />
 					</div>
 				</section>
-				<section id="use-cases" className="my-[200px] usecases-container px-[3%] lg:px-[100px]">
+				<section id="use-cases" className="my-[200px] px-[3%] lg:px-[100px]">
 					<div className="mb-[250px]">
 						<div className="mb-[90px]">
 							<h3 className="uppercase text-base tracking-[-0.5px] mb-2 text-white">use cases</h3>
@@ -183,9 +188,8 @@ export default function Home() {
 							</p>
 						</div>
 						<div>
-							{/* Grid */}
 							<div className="flex flex-col gap-5 lg:flex-row">
-								<div className="usecase-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
+								<div data-aos="zoom-in" className="usecase-one-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
 									<div className="w-full mx-auto duration-100 opacity-0 group-hover:opacity-100">
 										<img src="/svgs/usecase-top-border.svg" alt="top border" className="w-full" />
 									</div>
@@ -202,7 +206,7 @@ export default function Home() {
 										</div>
 									</div>
 								</div>
-								<div className="usecase-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
+								<div data-aos="zoom-in" className="usecase-two-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
 									<div className="w-full duration-100 opacity-0 group-hover:opacity-100">
 										<img src="/svgs/usecase-top-border.svg" alt="top border" className="w-full" />
 									</div>
@@ -221,23 +225,7 @@ export default function Home() {
 								</div>
 							</div>
 							<div className="flex flex-col gap-5 mt-[31.5px] lg:flex-row">
-								<div className="usecase-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
-									<div className="w-full mx-auto duration-100 opacity-0 group-hover:opacity-100">
-										<img src="/svgs/usecase-top-border.svg" alt="top border" className="w-full" />
-									</div>
-									<div>
-										<div className="p-8 pt-[266px]">
-											<h3 className="text-lg mb-4 text-white font-medium">
-												Privacy-Centric Applications
-											</h3>
-											<p className="text-base tracking-[-0.5px] text-[rgba(255,255,255,0.7)]">
-												Develop applications with uncompromising user privacy. Ensures data
-												remains inviolable for all communication needs
-											</p>
-										</div>
-									</div>
-								</div>
-								<div className="usecase-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
+								<div data-aos="zoom-in" className="usecase-three-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
 									<div className="w-full mx-auto duration-100 opacity-0 group-hover:opacity-100">
 										<img src="/svgs/usecase-top-border.svg" alt="top border" className="w-full" />
 									</div>
@@ -253,7 +241,25 @@ export default function Home() {
 										</div>
 									</div>
 								</div>
-								<div className="usecase-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
+
+								<div data-aos="zoom-in" className="usecase-four-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
+									<div className="w-full mx-auto duration-100 opacity-0 group-hover:opacity-100">
+										<img src="/svgs/usecase-top-border.svg" alt="top border" className="w-full" />
+									</div>
+									<div>
+										<div className="p-8 pt-[266px]">
+											<h3 className="text-lg mb-4 text-white font-medium">
+												Privacy-Centric Applications
+											</h3>
+											<p className="text-base tracking-[-0.5px] text-[rgba(255,255,255,0.7)]">
+												Develop applications with uncompromising user privacy. Ensures data
+												remains inviolable for all communication needs
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<div data-aos="zoom-in" className="usecase-five-container backdrop-blur-lg group cursor-pointer hover:usecase-hover">
 									<div className="w-full duration-100 opacity-0 group-hover:opacity-100">
 										<img src="/svgs/usecase-top-border.svg" alt="top border" className="w-full" />
 									</div>
@@ -272,12 +278,21 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div>
-						<img src="/svgs/globe.svg" alt="Globe" className="animate-pulse" />
+				</section>
+				<section id="roadmap" className="w-full mt-[140px] mb-[200px] px-[3%] lg:px-[79px]">
+					<div className="mb-[80px]">
+						<h5 className="text-base text-white mb-2">IMPERIUS</h5>
+						<h1 className="text-[32px] leading-[48px] text-[#04B6B6] font-bold">Roadmap</h1>
+					</div>
+					<div className="mb-[121px]">
+						<Roadmap />
+					</div>
+					<div className="mx-auto w-full">
+						<img src="/svgs/globe.svg" alt="Globe" className="animate-pulse w-full" />
 					</div>
 				</section>
 				<section id="faq" className="flex flex-col justify-between px-[3%] lg:px-[100px] lg:flex-row">
-					<div className="max-w-full lg:max-w-[427px]">
+					<div data-aos="fade-right" className="max-w-full lg:max-w-[427px]">
 						<div className="mb-12">
 							<h2 className="text-[32px] leading-[48px] text-[#04B6B6] mb-4 font-medium">
 								Frequently Asked Questions
@@ -287,11 +302,7 @@ export default function Home() {
 								available. Try reaching us!
 							</p>
 						</div>
-						<a
-							href=""
-							target="_blank"
-							className="bg-[#04B6B6] text-white text-base tracking-[-0.5px] font-bold py-3 px-6 rounded-[100px] w-fit flex items-center gap-[17px]"
-						>
+						<a href="" target="_blank" className={`${buttonBase} flex w-fit items-center`}>
 							<span>Contact us</span>
 							<span>
 								<svg
@@ -311,17 +322,17 @@ export default function Home() {
 							</span>
 						</a>
 					</div>
-					<div className="max-w-full mt-16 lg:mt-0 lg:max-w-[557px]">
+					<div data-aos="fade-left" className="max-w-full mt-16 lg:mt-0 lg:max-w-[557px]">
 						{faqData.map((faq, idx) => {
 							return (
 								<div key={idx} className="mb-12">
 									<button
 										onClick={() => handleToggleAccordion(faq.id)}
-										className="mb-4 w-full items-center flex justify-between"
+										className="mb-4 w-full items-center flex justify-between !text-left"
 									>
-										<h3 className="text-white">{faq.question}</h3>
+										<h3 className="text-white !text-left">{faq.question}</h3>
 										<div
-											className={` duration-75 ${
+											className={`duration-150 ${
 												selectedFaq === faq.id ? "rotate-180" : "rotate-0"
 											}`}
 										>
@@ -340,13 +351,17 @@ export default function Home() {
 										</div>
 									</button>
 									<div
-										className={`duration-75 ${
-											selectedFaq === faq.id ? "overflow-auto h-full" : "overflow-hidden h-0"
+										className={`duration-150 ${
+											selectedFaq === faq.id
+												? "overflow-auto h-full opacity-100"
+												: "overflow-hidden h-0 opacity-0"
 										}`}
 									>
 										<p
-											className={`text-[rgba(255,255,255,0.6)] duration-75 ${
-												selectedFaq === faq.id ? "overflow-auto h-full" : "overflow-hidden h-0"
+											className={`text-[rgba(255,255,255,0.6)] duration-150 ${
+												selectedFaq === faq.id
+													? "overflow-auto h-full opacity-100"
+													: "overflow-hidden h-0 opacity-0"
 											}`}
 										>
 											{faq.answer}
