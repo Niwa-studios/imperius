@@ -331,7 +331,7 @@ export default function Home() {
 									>
 										<h3 className="text-white !text-left">{faq.question}</h3>
 										<div
-											className={`duration-150 ${
+											className={`duration-300 ${
 												selectedFaq === faq.id ? "rotate-180" : "rotate-0"
 											}`}
 										>
@@ -350,14 +350,14 @@ export default function Home() {
 										</div>
 									</button>
 									<div
-										className={`duration-150 ${
+										className={`duration-300 ${
 											selectedFaq === faq.id
 												? "overflow-auto h-full opacity-100"
 												: "overflow-hidden h-0 opacity-0"
 										}`}
 									>
 										<p
-											className={`text-[rgba(255,255,255,0.6)] duration-150 ${
+											className={`text-[rgba(255,255,255,0.6)] duration-300 ${
 												selectedFaq === faq.id
 													? "overflow-auto h-full opacity-100"
 													: "overflow-hidden h-0 opacity-0"

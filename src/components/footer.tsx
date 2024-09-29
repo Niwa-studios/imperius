@@ -82,8 +82,10 @@ function Footer() {
 							<SectionLink href="faq">FAQ</SectionLink>
 						</li>
 					</ul>
-					<div>
-						<div className="h-[267px] w-full bg-[rgba(249,250,251,0.2)]"></div>
+					<div className="max-w-[560px]">
+						<video loop muted autoPlay playsInline width="100%" height="100%" controls={false}>
+							<source src={"/videos/decentralized.mp4"} type="video/mp4" />
+						</video>
 					</div>
 				</div>
 			</div>

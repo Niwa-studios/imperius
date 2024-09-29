@@ -14,12 +14,19 @@ const phases = [
 	{
 		id: 2,
 		title: "AI Integration and Ecosystem Expansion",
-		description: [],
+		description: [
+			"AI-Powered Scalability: Implement AI to optimize network scalability, boosting performance and operational efficiency.",
+			"Imperius Ecosystem: Expand the product range to include validators, mining opportunities, and advanced computational protocols for decentralized operations.",
+			"One-Click Node Deployment: Enable easy node deployment with a single-click setup, supporting blockchain and decentralized applications.",
+		],
 	},
 	{
 		id: 3,
 		title: "Multi-Chain and Global Adoption",
-		description: [],
+		description: [
+			"Multi-Chain Interoperability: Support interaction between different blockchain ecosystems, increasing the flexibility and reach of Imperius.",
+			"Global Network Expansion: Build a decentralized mesh network for self-healing, ensuring continuous uptime.",
+		],
 	},
 ];
 
@@ -71,9 +78,9 @@ const Roadmap = () => {
 								transition={{ duration: 0.5 }}
 							>
 								<h2
-									className={`mb-3 ${index === 0 ? "text-center lg:text-right" : "text-center lg:text-left"} ${
-										currentPhase >= index ? "text-[#04B6B6]" : "text-[#888888]"
-									}`}
+									className={`mb-3 ${
+										index === 0 ? "text-center lg:text-right" : "text-center lg:text-left"
+									} ${currentPhase >= index ? "text-[#04B6B6]" : "text-[#888888]"}`}
 								>
 									{`Phase ${phase.id}`}
 								</h2>
@@ -91,11 +98,11 @@ const Roadmap = () => {
 								</div>
 							</motion.div>
 							<h2 className="text-white mb-4">{phase.title}</h2>
-							{/* <ul className="list-disc pl-5 text-left space-y-2 text-white text-base">
+							<ul className={`list-disc pl-5 text-left space-y-2 mb-5 text-base duration-300 ${currentPhase >= index ? "opacity-100 text-white" : "opacity-5 text-[#ffffff44]"}`}>
 								{phase.description.map((desc, idx) => (
 									<li key={idx}>{desc}</li>
 								))}
-							</ul> */}
+							</ul>
 						</div>
 					))}
 				</div>
